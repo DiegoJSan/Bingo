@@ -11,16 +11,45 @@ public class Carton {
        
         nums = new int[9][3];
         
-        for(int y=0; y<3; y++){
+        /*for(int y=0; y<3; y++){
             for(int x=0; x<9; x++){
                 nums[x][y] = getNumAleatorio(1,90);
             }
+        }*/
+        
+        int num;
+        int col;
+        int fil;
+        // Generar las 3 filas del cartón
+        for(fil=0; fil<3; fil++){
+            // Generar los 5 números de las fila del cartón
+            for(int i=0; i<5; i++){
+                //Mientras sea igual a 0
+                do{
+                    num = getNumAleatorio(1,89);
+                    System.out.println("numero aleatorio " + num);
+                    //Método para comprobar en qué colunma va el número
+                    col = this.getnumColumna(num);
+                } while (nums[col][fil] != 0);
+                nums[col][fil] = num;
+            }
         }
+        
         this.mostrarPorConsola();       
     }
     
+    // Retorna el número de la columna
+    private int getnumColumna(int num){
+        /*int col = num / 10;
+        return col;*/
+        return (num/10);
+    }
+    
+    // Muestra los números
     public void mostrarPorConsola(){
+        //Bucle filas
         for(int y=0; y<3; y++){
+            //Bucles columnas
             for(int x=0; x<9; x++){
                 //System.out.println("x=" + x + "y=" + y);
                 System.out.print(nums [x][y] + " ");
