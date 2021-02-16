@@ -6,37 +6,34 @@ public class Carton {
     
     //Variables
     int [][] nums;
-    
-    public void generar (){ //void = retorno , generar = nombre de la clase. Se declara el método
-       
-        nums = new int[9][3];
-        
-        /*for(int y=0; y<3; y++){
-            for(int x=0; x<9; x++){
-                nums[x][y] = getNumAleatorio(1,90);
-            }
-        }*/
+    int numFilas;
+    public Carton(int numFilas) {  //Método constructor 
+        this.numFilas = numFilas;
+        nums = new int[9][numFilas];
         
         int num;
         int col;
         int fil;
         // Generar las 3 filas del cartón
-        for(fil=0; fil<3; fil++){
+        for(fil=0; fil<numFilas; fil++){
             // Generar los 5 números de las fila del cartón
             for(int i=0; i<5; i++){
                 //Mientras sea igual a 0
                 do{
                     num = getNumAleatorio(1,89);
-                    System.out.println("numero aleatorio " + num);
+                    //System.out.println("numero aleatorio " + num);
                     //Método para comprobar en qué colunma va el número
                     col = this.getnumColumna(num);
-                } while (nums[col][fil] != 0);
+                //Para que no sobrescriba los números
+                //   y no se repita el número
+                } while (nums[col][fil] != 0);  
                 nums[col][fil] = num;
             }
         }
         
-        this.mostrarPorConsola();       
+        this.mostrarPorConsola(); 
     }
+    
     
     // Retorna el número de la columna
     private int getnumColumna(int num){
@@ -48,7 +45,7 @@ public class Carton {
     // Muestra los números
     public void mostrarPorConsola(){
         //Bucle filas
-        for(int y=0; y<3; y++){
+        for(int y=0; y<numFilas; y++){
             //Bucles columnas
             for(int x=0; x<9; x++){
                 //System.out.println("x=" + x + "y=" + y);
