@@ -17,7 +17,8 @@ public class App extends Application {
         stage.show();
         
         Carton carton = new Carton(5);
-       
+        System.out.println(carton.getNumPos(4, 2));
+        carton.getNumPos(4, 2);
     }
 
     public static void main(String[] args) {

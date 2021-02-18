@@ -7,6 +7,7 @@ public class Carton {
     //Variables
     int [][] nums;
     int numFilas;
+    
     public Carton(int numFilas) {  //Método constructor 
         this.numFilas = numFilas;
         nums = new int[9][numFilas];
@@ -62,4 +63,7 @@ public class Carton {
         return num;
     }
     
+    public int getNumPos(int posx, int posy) {
+        return nums[posx][posy];
+    }
 }
